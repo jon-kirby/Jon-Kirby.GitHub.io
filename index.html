@@ -319,8 +319,23 @@
         <section id="details-beta" class="project-detail" style="display: none;">
             <h2>&gt; Operation: Beta_Details</h2>
             <div class="project-brief">
-                <h3 style="color: var(--accent-color); margin-bottom: 15px;">Network Architecture Audit</h3>
-                <p style="color: var(--text-muted);">Awaiting transmission log for Beta...</p>
+                <h3 style="color: var(--accent-color); margin-bottom: 15px;">Digital Forensics & Incident Response (DFIR)</h3>
+                
+                <p><strong>Situation:</strong> An enterprise endpoint was compromised via a sophisticated social engineering vector, successfully downloading a ClickFix malware payload and creating a high-risk data exfiltration scenario.</p>
+                
+                <p><strong>Task:</strong> Isolate the compromised asset, reverse-engineer the malware payload to understand its capabilities, and definitively determine if any sensitive data was exfiltrated from the network.</p>
+                
+                <p><strong>Action:</strong></p>
+                <ul>
+                    <li>Executed rapid endpoint isolation and securely acquired the physical hardware for a deep-dive digital forensics investigation.</li>
+                    <li>Detonated the payload in a secure sandbox, stripping away obfuscation layers to analyze the source code and identifying two primary communication vectors: a heartbeat signal and a C&C server port.</li>
+                    <li>Correlated the reverse-engineered Indicators of Compromise (IoCs) with <strong>Microsoft Defender</strong> telemetry to trace all endpoint network activity.</li>
+                    <li>Engineered custom threat-hunting queries in <strong>Cisco Orbital</strong> targeting the initial attack chain link to prevent identical intrusions.</li>
+                    <li>Designed and led a targeted enterprise-wide security awareness campaign utilizing <strong>KnowBe4</strong> to harden the human firewall against social engineering.</li>
+                </ul>
+
+                <p><strong>Result:</strong> Definitively proved zero data exfiltration occurred, verifying through log correlation that the malware only successfully transmitted benign GET requests via the heartbeat protocol. The subsequent technical controls and educational campaigns successfully hardened the environment against future ClickFix attack vectors.</p>
+                
                 <button class="btn close-btn" style="margin-top: 30px;">Close Terminal</button>
             </div>
         </section>
