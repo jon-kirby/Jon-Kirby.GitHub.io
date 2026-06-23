@@ -293,11 +293,25 @@
             </div>
         </section>
 
-        <section id="details-alpha" class="project-detail" style="display: none;">
+       <section id="details-alpha" class="project-detail" style="display: none;">
             <h2>&gt; Operation: Alpha_Details</h2>
             <div class="project-brief">
-                <h3 style="color: var(--accent-color); margin-bottom: 15px;">Threat Intelligence & Mitigation</h3>
-                <p style="color: var(--text-muted);">Awaiting transmission log for Alpha...</p>
+                <h3 style="color: var(--accent-color); margin-bottom: 15px;">Automated Vulnerability & Patch Pipeline</h3>
+                
+                <p><strong>Situation:</strong> Managing vulnerabilities and patching manually across a distributed environment leaves critical gaps in endpoint security and delays response times to emerging threats.</p>
+                
+                <p><strong>Task:</strong> Architect a fully automated, zero-touch pipeline to identify, track, and remediate Common Vulnerabilities and Exposures (CVEs) across all enterprise endpoints.</p>
+                
+                <p><strong>Action:</strong></p>
+                <ul>
+                    <li>Worked with Senior Automation Engineers to create an <strong>Azure Automation</strong> workflow to dynamically query Microsoft Defender using <strong>KQL</strong>.</li>
+                    <li>Extracted active threat intelligence into memory and routed it directly into the <strong>NinjaOne RMM</strong> vulnerability scanner via an API connection.</li>
+                    <li>Mapped identified CVEs to specific endpoints, creating a holistic, real-time dashboard of the environment's security posture.</li>
+                    <li>Configured automated NinjaOne policies to autonomously push OS updates, third-party software patches, and critical KB downloads to vulnerable assets.</li>
+                </ul>
+
+                <p><strong>Result:</strong> Eliminated manual vulnerability mapping and established a continuous state of compliance. The automated pipeline reduced critical vulnerabilities by <strong>nearly 80%</strong>, decreased total environment vulnerabilities by <strong>over 50%</strong>, and achieved a Mean Time to Patch (MTTP) of <strong>under 30 days</strong>.</p>
+                
                 <button class="btn close-btn" style="margin-top: 30px;">Close Terminal</button>
             </div>
         </section>
