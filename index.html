@@ -143,6 +143,57 @@
             color: var(--text-muted);
             font-size: 0.95rem;
         }
+        /* --- Contact Form Styling --- */
+        .contact-form {
+            max-width: 600px;
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid #1f2937;
+            /* Animation so it fades in when scrolled to */
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out forwards;
+            animation-delay: 0.8s; 
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            background-color: #0a0f16; /* Darker background for inputs */
+            border: 1px solid #1f2937;
+            border-radius: 4px;
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        /* The 'Glow' effect when a user types in a box */
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 12px rgba(0, 255, 204, 0.15);
+        }
+
+        .submit-btn {
+            width: 100%;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
         /* --- Mobile Optimization (Screens under 768px) --- */
         @media (max-width: 768px) {
             
@@ -209,7 +260,32 @@
                 <a href="#contact" class="btn">Initialize Contact</a>
             </div>
         </section>
-
+        <!-- Contact form CSS with Formspree -->
+<section id="contact">
+            <h2>&gt; Secure_Comms</h2>
+            <p style="color: var(--text-muted); margin-bottom: 30px;">
+                Open a secure channel. Drop your details below and I'll receive the transmission.
+            </p>
+            
+            <form action="https://formspree.io/f/xkolgbyw" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name / Handle</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Return Address (Email)</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Transmission Log</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn submit-btn">Send Transmission</button>
+            </form>
+        </section>
         <!-- Placeholder Projects Section -->
         <section id="projects">
             <h2>&gt; Active_Operations</h2>
