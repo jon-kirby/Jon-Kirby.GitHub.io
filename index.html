@@ -257,11 +257,11 @@
                 Welcome to my GitHub page! I will be posting my various projects and tool lists.
             </p>
             <div>
-                <a href="#contact" class="btn">Initialize Contact</a>
+                <a href="#contact" id="reveal-btn" class="btn">Initialize Contact</a>
             </div>
         </section>
         <!-- Contact form CSS with Formspree -->
-<section id="contact">
+<section id="contact" style="display: none;">
             <h2>&gt; Secure_Comms</h2>
             <p style="color: var(--text-muted); margin-bottom: 30px;">
                 Open a secure channel. Drop your details below and I'll receive the transmission.
@@ -308,6 +308,25 @@
             </div>
         </section>
     </div>
+<script>
+        // 1. Find the button and the form in the document
+        const revealBtn = document.getElementById('reveal-btn');
+        const contactForm = document.getElementById('contact');
 
+        // 2. Listen for a click on the button
+        revealBtn.addEventListener('click', function(event) {
+            // Prevent the default instant jump
+            event.preventDefault(); 
+
+            // 3. Make the form visible
+            contactForm.style.display = 'block';
+
+            // 4. Smoothly scroll down to the newly revealed form
+            contactForm.scrollIntoView({ behavior: 'smooth' });
+            
+            // Optional: Hide the button after it's clicked
+            revealBtn.style.display = 'none'; 
+        });
+    </script>
 </body>
 </html>
