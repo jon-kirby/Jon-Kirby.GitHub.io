@@ -143,6 +143,28 @@
             color: var(--text-muted);
             font-size: 0.95rem;
         }
+        /* --- Project Detail Briefs --- */
+        .project-brief {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color); /* Adds a sharp accent line */
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeUp 0.6s ease-out forwards;
+        }
+
+        .project-brief p {
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+        
+        .project-brief ul {
+            list-style-type: square;
+            margin-left: 20px;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
         /* --- Contact Form Styling --- */
         .contact-form {
             max-width: 600px;
@@ -290,24 +312,51 @@
         <section id="projects">
             <h2>&gt; Active_Operations</h2>
             <div class="grid">
-                <!-- Project Card 1 -->
-                <div class="card">
+                <div class="card" data-target="details-alpha" style="cursor: pointer;">
                     <h3>Project Alpha</h3>
-                    <p>placeholder</p>
+                    <p>Threat Intelligence & Mitigation. Click to view log...</p>
                 </div>
-                <!-- Project Card 2 -->
-                <div class="card">
+                
+                <div class="card" data-target="details-beta" style="cursor: pointer;">
                     <h3>Project Beta</h3>
-                    <p>placeholder</p>
+                    <p>Network Architecture Audit. Click to view log...</p>
                 </div>
-                <!-- Project Card 3 -->
-                <div class="card">
+                
+                <div class="card" data-target="details-gamma" style="cursor: pointer;">
                     <h3>Project Gamma</h3>
-                    <p>placeholder</p>
+                    <p>Endpoint Security Deployment. Click to view log...</p>
                 </div>
+            </div>
+            </div>
+        </section>
+    <section id="details-alpha" class="project-detail" style="display: none;">
+            <h2>&gt; Operation: Alpha_Details</h2>
+            <div class="project-brief">
+                <h3 style="color: var(--accent-color); margin-bottom: 15px;">Threat Intelligence & Mitigation</h3>
+                <p style="color: var(--text-muted);">Awaiting transmission log for Alpha...</p>
+                <button class="btn close-btn" style="margin-top: 30px;">Close Terminal</button>
+            </div>
+        </section>
+
+        <section id="details-beta" class="project-detail" style="display: none;">
+            <h2>&gt; Operation: Beta_Details</h2>
+            <div class="project-brief">
+                <h3 style="color: var(--accent-color); margin-bottom: 15px;">Network Architecture Audit</h3>
+                <p style="color: var(--text-muted);">Awaiting transmission log for Beta...</p>
+                <button class="btn close-btn" style="margin-top: 30px;">Close Terminal</button>
             </div>
         </section>
     </div>
+<section id="details-alpha" style="display: none;">
+            <h2>&gt; Operation: Alpha_Details</h2>
+            <div class="project-brief">
+                <h3 style="color: var(--accent-color); margin-bottom: 15px;">Threat Intelligence & Mitigation</h3>
+                <div id="alpha-copy">
+                    <p style="color: var(--text-muted);">Awaiting transmission log...</p>
+                </div>
+                <button id="close-alpha" class="btn" style="margin-top: 30px;">Close Terminal</button>
+            </div>
+        </section>
 <script>
         // 1. Find the button and the form in the document
         const revealBtn = document.getElementById('reveal-btn');
@@ -328,5 +377,42 @@
             revealBtn.style.display = 'none'; 
         });
     </script>
+// --- Universal Project Logic ---
+        
+        // 1. Grab all project cards on the page
+        const projectCards = document.querySelectorAll('.card');
+
+        // 2. Loop through each card and add a click listener
+        projectCards.forEach(card => {
+            card.addEventListener('click', function() {
+                // Read the data-target attribute (e.g., 'details-alpha')
+                const targetId = this.getAttribute('data-target');
+                const targetSection = document.getElementById(targetId);
+
+                // If that section exists, show it and scroll to it
+                if (targetSection) {
+                    targetSection.style.display = 'block';
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // 3. Grab all the 'Close Terminal' buttons
+        const closeButtons = document.querySelectorAll('.close-btn');
+
+        // 4. Add a click listener to hide the active section
+        closeButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Find the closest parent section with the 'project-detail' class
+                const parentSection = this.closest('.project-detail');
+                
+                if (parentSection) {
+                    // Hide this specific section
+                    parentSection.style.display = 'none';
+                    // Scroll smoothly back up to the main projects grid
+                    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });    
 </body>
 </html>
